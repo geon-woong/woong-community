@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import AppRouter from "./components/Router";
+import { useState,useEffect } from 'react'
+import { authService } from './firebase'
 function App() {
+  const [init, setinit] = useState(false)
+  const [isLogIn, setisLogIn] = useState(false);
+  const [userObj, setUserObj] = useState(null);
+  useEffect(() => {
+    authService.onAuthStateChanged((user)=>{
+      if(user){
+        setisLogIn(true);
+        setUserObj(user);
+      }else{
+        setisLogIn(false)
+      }
+      setinit(true);
+    });
+  }, [])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    <div>
+      {init ? <AppRouter isLogIn={isLogIn} userObj={userObj}></AppRouter> : "Initializing..."}
+      <footer>&copy;{new Date().getFullYear()}WoongMunity </footer>
     </div>
-  );
+  )
 }
 
 export default App;
