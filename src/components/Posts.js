@@ -42,11 +42,16 @@ const [newPost, setNewPost] = useState(postObj.content);
             {
                 editing ?
                     <>
-                        <form onSubmit={onSubmit}>
-                            <input type="text" onChange={onChange} value={newPost} required />
-                            <input type="submit" value="수정" />
-                        </form>
-                        <button onClick={toggleEditing} type="text" placeholder="수정하세요" >취소</button>
+                        {   isOwner &&(
+                            <>
+                                <form onSubmit={onSubmit}>
+                                    <input type="text" onChange={onChange} value={newPost} required />
+                                    <input type="submit" value="수정" />
+                                </form>
+                                <button onClick={toggleEditing} type="text" placeholder="수정하세요" >취소</button>
+                            </>
+                        )
+                        }
                     </>
                     :
                     <>

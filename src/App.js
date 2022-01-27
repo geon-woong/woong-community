@@ -20,7 +20,7 @@ function App() {
 
     <div>
       {init ? <AppRouter isLogIn={isLogIn} userObj={userObj}></AppRouter> : "Initializing..."}
-      <footer>&copy;{new Date().getFullYear()}WoongMunity </footer>
+      {/* <footer>&copy;{new Date().getFullYear()}WoongMunity </footer> */}
     </div>
   )
 }

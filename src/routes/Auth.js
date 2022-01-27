@@ -8,9 +8,11 @@ const Auth = () => {
     const [password, setpassword] = useState("")
     const [newAccount, setnewAccount] = useState(true)
     const [error, seterror] = useState("")
+
+
     const onChange = (event) => {
         let {
-            target : {name,value},
+            target : {name, value},
         } = event;
         if(name === "email") {
             setemail(value);
@@ -54,13 +56,16 @@ const Auth = () => {
 
     return (
         <div>
+            {/* 로그인 / 회원가입 폼  */}
             <form onSubmit={onSubmit}>
                 <input onChange={onChange} value={email} name="email" type="text" placeholder="Email" required />
                 <input onChange={onChange} value={password} name="password" type="password" placeholder="password" required autoComplete="on"/>
                 <input type="submit" value={ newAccount ? "Create Account" : "Log In"} />
                 { error }
             </form>
+            {/* 로그인 - > 회원가입 토글 */}
             <span onClick={toggleAccount}>{newAccount ? "Log In" : "Sign In"}</span>
+             {/* 소셜로그인 */}
             <div>
                 <button onClick={onSocialClick} name="google">Continue with Google</button>
             </div>
