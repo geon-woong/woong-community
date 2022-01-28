@@ -1,0 +1,50 @@
+@import url('./_reset.scss');
+@import url('./_btn.scss');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
+
+
+$blueColor : #79B4B7;
+$lighterColor : #FEFBF3;
+$lightColor : #F8F0DF;
+$darkColor : #9D9D9D;
+
+html{
+    background: $lighterColor;
+}
+div{
+    font-family: 'Nanum Gothic', sans-serif;
+}
+
+
+.logIn{
+    width: 20em;
+    padding: 5em; 
+    position: fixed;
+    top: 50%;left: 50%;
+    background: #fff;
+    transform: translate(-50%,-50%);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0.1rem 0.1rem 0.1rem rgba($color: #000000, $alpha: 0.3);
+    div{
+        display: flex;
+        padding: 5px;
+        justify-content: center;
+    }
+    input{
+        display: block;
+        padding: 0.5em;
+        margin-bottom: 0.5em;
+    }
+    span{
+        text-align: center;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    span[name="toggle"]{
+        font-weight: bold;
+        text-decoration: underline;
+    }
+    
+}

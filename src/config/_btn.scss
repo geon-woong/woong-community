@@ -1,0 +1,19 @@
+@import './App.scss';
+
+@mixin btn($color) {
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 0.95rem;
+    background-color: $color;
+    // width: ;
+}
+
+.btn-blue{
+    @include btn($blueColor)
+}
+.btn-login{
+    @include btn($blueColor);
+    width : 100%;
+}

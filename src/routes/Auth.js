@@ -2,11 +2,11 @@ import React from 'react'
 import { useState } from 'react'
 import { authService } from '../firebase'
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider } from 'firebase/auth';
-
+import '../config/App.scss'
 const Auth = () => {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
-    const [newAccount, setnewAccount] = useState(true)
+    const [newAccount, setnewAccount] = useState(false)
     const [error, seterror] = useState("")
 
 
@@ -55,21 +55,24 @@ const Auth = () => {
     }
 
     return (
-        <div>
-            {/* 로그인 / 회원가입 폼  */}
-            <form onSubmit={onSubmit}>
-                <input onChange={onChange} value={email} name="email" type="text" placeholder="Email" required />
-                <input onChange={onChange} value={password} name="password" type="password" placeholder="password" required autoComplete="on"/>
-                <input type="submit" value={ newAccount ? "Create Account" : "Log In"} />
-                { error }
-            </form>
-            {/* 로그인 - > 회원가입 토글 */}
-            <span onClick={toggleAccount}>{newAccount ? "Log In" : "Sign In"}</span>
-             {/* 소셜로그인 */}
-            <div>
-                <button onClick={onSocialClick} name="google">Continue with Google</button>
+            <div className="logIn">
+                    <h5>
+                        {
+                            newAccount ? "회원가입" : " "
+                        }
+                    </h5>
+                    <div>
+                        <form onSubmit={onSubmit}>
+                            <input onChange={onChange} value={email} name="email" type="text" placeholder="Email" required />
+                            <input onChange={onChange} value={password} name="password" type="password" placeholder="Password" required autoComplete="on" />
+                            <input type="submit" value={newAccount ? "가입하기" : "로그인"} className="btn-login" />
+                            {error}
+                        </form>
+                    </div>
+                    <span name="toggle" onClick={toggleAccount}>{newAccount ? "로그인하기 " : "계정이 없으신가요?"}</span>
+                    <span onClick={onSocialClick} name="google">Google Login</span>
             </div>
-        </div>
+            
     );
 
 }

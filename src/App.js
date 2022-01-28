@@ -1,6 +1,7 @@
 import AppRouter from "./components/Router";
 import { useState,useEffect } from 'react'
 import { authService } from './firebase'
+import './config/App.scss'
 function App() {
   const [init, setinit] = useState(false)
   const [isLogIn, setisLogIn] = useState(false);
@@ -21,6 +22,7 @@ function App() {
     <div>
       {init ? <AppRouter isLogIn={isLogIn} userObj={userObj}></AppRouter> : "Initializing..."}
       {/* <footer>&copy;{new Date().getFullYear()}WoongMunity </footer> */}
+
     </div>
   )
 }
