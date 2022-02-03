@@ -1,7 +1,6 @@
 @import url('./_reset.scss');
 @import url('./_btn.scss');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&family=Yellowtail&display=swap');
 
 $blueColor : #79B4B7;
 $lighterColor : #FEFBF3;
@@ -14,8 +13,52 @@ html{
 div{
     font-family: 'Nanum Gothic', sans-serif;
 }
+nav{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    ul{
+        display: flex;
+        font-family: 'Yellowtail';
+        text-decoration: underline;
+        li{
+            padding: 0.5rem;
+            a{
+                color: $darkColor;
+            }
+        }
+    }
+}
 
+.centerPosition{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+    >input{
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid $darkColor;
+        margin-right: 0.1rem;
+    }
+    >input[type=submit]{
+        background: $darkColor;
+        color: #fff;
+    } 
+}
 
+.main-title{
+    font-size: 2.5rem;
+    font-family: 'Yellowtail';
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $blueColor;
+}
+
+// 로그인 
 .logIn{
     width: 20em;
     padding: 5em; 
@@ -27,15 +70,15 @@ div{
     flex-direction: column;
     border-radius: 10px;
     box-shadow: 0.1rem 0.1rem 0.1rem rgba($color: #000000, $alpha: 0.3);
-    div{
+    >div{
         display: flex;
         padding: 5px;
         justify-content: center;
-    }
-    input{
-        display: block;
-        padding: 0.5em;
-        margin-bottom: 0.5em;
+        input{
+            display: block;
+            padding: 0.5em;
+            margin-bottom: 0.5em;
+        }
     }
     span{
         text-align: center;
@@ -46,5 +89,30 @@ div{
         font-weight: bold;
         text-decoration: underline;
     }
-    
+}
+
+.logOutBtn{
+    position: absolute;
+    top: 1%;
+    right: 1%;
+    background: $darkColor;
+    color: #fff;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+.post{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    > div{     
+        width: 30rem;height: 10rem;
+        padding: 2rem;
+        background: #fff;
+        margin-bottom: 2rem;
+        border: 1px solid $darkColor;
+        border-radius: 0.5rem;
+        box-shadow: 0.4rem 0.3rem 0.1rem 0.1rem rgba(8, 44, 32, 0.1);
+    }
 }

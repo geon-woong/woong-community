@@ -16,6 +16,7 @@ import {
                    } from "firebase/firestore";
 import {v4 as uuid, v4} from "uuid"
 import Posts from '../components/Posts';
+import LogOutBtn from '../components/LogOutBtn';
 
 const Home = ({userObj})=>{ 
 
@@ -66,41 +67,41 @@ const Home = ({userObj})=>{
             const fileRef = ref(fireStorage, `${userObj.uid}/${v4()}`);
             //storage 참조 경로로 파일 업로드 하기
             const uploadFile = await uploadString(fileRef, attachment, "data_url");
-            console.log(uploadFile);
             //storage에 있는 파일 URL로 다운로드 받기
-            attachmentUrl = await getDownloadURL(uploadFile.ref);
+            // attachmentUrl = await getDownloadURL(uploadFile.ref);
         }
-        const nweetPosting = {
+        const newPosting = {
             content,
             createdAt: Date.now(),
             creatorId: userObj.uid,
             attachmentUrl,
             };
-            await addDoc(collection(firebaeDb, "contents"), nweetPosting);
+            await addDoc(collection(firebaeDb, "contents"), newPosting);
             setcontent("");
             setAttachment("");
     }
   
    
     
-    const onResetAttachment = ()=>{
-        setAttachment(null)
-    }
+    // const onResetAttachment = ()=>{
+    //     setAttachment(null)
+    // }
 
     return(
         <div>
-            <form onSubmit={onSubmit}>
+            <LogOutBtn></LogOutBtn>
+            <form className="centerPosition" onSubmit={onSubmit}>
                 <input type="text" value={content} onChange={onChange} placeholder="입력하세요"  maxLength={120}/>
-                <input type="file" accept="image/*" onChange={onFileChnage}  />
-                <img src={attachment} alt="" className="src" width="200" height="100" />
-                {
+                {/* <input type="file" accept="image/*" onChange={onFileChnage}  /> */}
+                {/* <img src={attachment} alt="" className="src" width="200" height="100" /> */}
+                {/* {
                     attachment && 
                     <button onClick={onResetAttachment}>사진 치워</button>
-                }
+                } */}
                 <input type="submit" value="등록" />
 
             </form>
-            <div>
+            <div className="post">
                 {
                     posts.map(content => (
                         <Posts key={content.id}

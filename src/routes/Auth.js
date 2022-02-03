@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { authService } from '../firebase'
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword,signInWithPopup,GoogleAuthProvider } from 'firebase/auth';
 import '../config/App.scss'
+import MainTitle from '../components/MainTitle'
 const Auth = () => {
     const [email, setemail] = useState("")
     const [password, setpassword] = useState("")
@@ -55,6 +56,8 @@ const Auth = () => {
     }
 
     return (
+        <>
+            <MainTitle/>
             <div className="logIn">
                     <h5>
                         {
@@ -72,7 +75,7 @@ const Auth = () => {
                     <span name="toggle" onClick={toggleAccount}>{newAccount ? "로그인하기 " : "계정이 없으신가요?"}</span>
                     <span onClick={onSocialClick} name="google">Google Login</span>
             </div>
-            
+        </>    
     );
 
 }

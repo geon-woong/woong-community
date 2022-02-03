@@ -1,15 +1,10 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { authService } from '../firebase'
+import LogOutBtn from '../components/LogOutBtn'
 const Profile= ()=>{
-    const history = useHistory();
-    const onLogOutClick = ()=>{
-        authService.signOut();
-        history.push('/')
-
-    }
-    return(
-        <><button onClick={onLogOutClick}>Log Out</button></>
+    return (
+        <div className="centerPosition">
+            <h3>Profile Page</h3>
+        </div>
     )
 }
 
