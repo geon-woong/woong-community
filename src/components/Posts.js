@@ -59,8 +59,8 @@ const [newPost, setNewPost] = useState(postObj.content);
                         {
                             isOwner && (
                                 <>
-                                    <button onClick={onDelete}>삭제</button>
-                                    <button onClick={toggleEditing}>수정</button>
+                                    <button className="btn-gray" onClick={onDelete}>삭제</button>
+                                    <button className="btn-gray" onClick={toggleEditing}>수정</button>
                                 </>
 
                             )}

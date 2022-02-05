@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import MainTitle from './MainTitle'
-const Navigation = ()=>{
+const Navigation = ({userObj})=>{
     return(
         <>
             <MainTitle></MainTitle>
@@ -11,7 +11,7 @@ const Navigation = ()=>{
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/profile">Profile</Link>
+                        <Link to="/profile">{userObj.displayName}Profile</Link>
                     </li>
                 </ul>
             </nav>

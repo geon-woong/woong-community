@@ -8,7 +8,7 @@ import Navigation from './Navigation';
 const AppRouter = ( { isLogIn,userObj } ) => {
     return(
         <Router>
-            {isLogIn && <Navigation/>}
+            {isLogIn && <Navigation userObj={userObj}/>}
             <Switch>
                 { 
                     isLogIn ? (
@@ -17,7 +17,7 @@ const AppRouter = ( { isLogIn,userObj } ) => {
                                 <Home userObj={userObj}></Home>
                             </Route>
                             <Route exact path="/profile">
-                                <Profile></Profile>
+                                <Profile userObj={userObj}></Profile>
                             </Route>
                             <Redirect from="*" to="/" />
                         </>

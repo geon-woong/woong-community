@@ -10,9 +10,11 @@ $darkColor : #9D9D9D;
 html{
     background: $lighterColor;
 }
+
 div{
     font-family: 'Nanum Gothic', sans-serif;
 }
+
 nav{
     position: absolute;
     top: 25%;
@@ -42,10 +44,7 @@ nav{
         border: 1px solid $darkColor;
         margin-right: 0.1rem;
     }
-    >input[type=submit]{
-        background: $darkColor;
-        color: #fff;
-    } 
+    
 }
 
 .main-title{
@@ -114,5 +113,8 @@ nav{
         border: 1px solid $darkColor;
         border-radius: 0.5rem;
         box-shadow: 0.4rem 0.3rem 0.1rem 0.1rem rgba(8, 44, 32, 0.1);
+        >p{
+            margin-bottom: 2rem;
+        }
     }
 }

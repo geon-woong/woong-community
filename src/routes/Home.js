@@ -44,20 +44,20 @@ const Home = ({userObj})=>{
                         setcontent(value);
                     };
 
-    const onFileChnage = (event)=>{
-        const {
-             target : {files} 
-        } = event;
-        const theFile = files[0];
-        const reader = new FileReader();
-        reader.onloadend = (finishedEvent) =>{
-                const {
-                     currentTarget : {result} 
-                    } = finishedEvent
-                setAttachment(result)
-            };
-            reader.readAsDataURL(theFile);
-    }
+    // const onFileChnage = (event)=>{
+    //     const {
+    //          target : {files} 
+    //     } = event;
+    //     const theFile = files[0];
+    //     const reader = new FileReader();
+    //     reader.onloadend = (finishedEvent) =>{
+    //             const {
+    //                  currentTarget : {result} 
+    //                 } = finishedEvent
+    //             setAttachment(result)
+    //         };
+    //         reader.readAsDataURL(theFile);
+    // }
 
     const onSubmit = async (e) => {
         e.preventDefault();
@@ -79,6 +79,8 @@ const Home = ({userObj})=>{
             await addDoc(collection(firebaeDb, "contents"), newPosting);
             setcontent("");
             setAttachment("");
+
+        console.log(newPosting)
     }
   
    
@@ -98,7 +100,7 @@ const Home = ({userObj})=>{
                     attachment && 
                     <button onClick={onResetAttachment}>사진 치워</button>
                 } */}
-                <input type="submit" value="등록" />
+                <input type="submit" value="등록" className="btn-gray"/>
 
             </form>
             <div className="post">
